@@ -1,0 +1,85 @@
+<div class="container">
+  <h3>CRUD - <span>Agregar</span></h3>
+
+  <div class="row">
+      <form [formGroup]="miFormulario" (ngSubmit)="agregar()">
+
+        <div class="row">
+          <!-- <div class="col-2">
+            <label for="idProducto" class="form-label">ID:</label>
+            <input type="number" min="1" formControlName="id" class="form-control">
+
+            <div class="alert alert-danger mt-2"
+                 role="alert"
+                 *ngIf="miFormulario.controls.id.errors && miFormulario.controls.id.touched">
+              Id obligatorio
+            </div>
+          </div> -->
+
+          <div class="col-5">
+            <label for="categoria" class="form-label">Categoria:</label>
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" formControlName="categoria">
+              <option selected>Abre este menu</option>
+              <option value="1">Vehiculos</option>
+              <option value="2">Supermercado</option>
+              <option value="3">Tecnologia</option>
+              <option value="4">Electrodomesticos</option>
+              <option value="5">Hogar y muebles</option>
+              <option value="6">Moda</option>
+              <option value="7">Deporte y fitness</option>
+            </select>
+
+            <div class="alert alert-danger mt-2"
+                 role="alert"
+                 *ngIf="miFormulario.controls.categoria.errors && miFormulario.controls.categoria.touched">
+              Categoria obligatoria
+            </div>
+          </div>
+
+          <div class="col-5">
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input type="text" formControlName="nombre" class="form-control">
+
+            <div class="alert alert-danger mt-2"
+                 role="alert"
+                 *ngIf="miFormulario.controls.nombre.errors && miFormulario.controls.nombre.touched">
+              Nombre obligatorio
+            </div>
+          </div>
+
+          <div class="col-2">
+            <label for="cantidad" class="form-label">Cantidad:</label>
+            <input type="number" formControlName="cantidad" class="form-control">
+
+            <div class="alert alert-danger mt-2"
+                 role="alert"
+                 *ngIf="miFormulario.controls.cantidad.errors && miFormulario.controls.cantidad.touched">
+              Cantidad obligatoria
+            </div>
+          </div>
+
+
+        </div>
+
+
+        <div class="row">
+
+
+          <div class="col">
+            <label for="nombreProducto" class="form-label">Descripcion:</label>
+            <input type="text" formControlName="descripcion" class="form-control">
+          </div>
+        </div>
+
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button type="submit" class="btn btn-success mt-2" [disabled]="miFormulario.invalid">
+        Agregar
+      </button>
+    </div>
+
+  </form>
+
+  </div>
+</div>
+

@@ -1,0 +1,94 @@
+
+<div class="container">
+<table class="table">
+  <thead>
+    <tr>
+      <!-- <th scope="col">Id</th> -->
+      <th scope="col">Categoria</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Descripcion</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let producto of productos">
+
+      <!-- <th scope="row">{{producto.id}}</th> -->
+      <td>{{producto.categoria}}</td>
+      <td>{{producto.nombre}}</td>
+      <td>{{producto.cantidad}}</td>
+      <td>{{producto.descripcion}}</td>
+      <td>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</button>
+        <button class="btn btn-danger m-2" (click)="eliminar(producto.nombre)">Eliminar</button>
+      </td>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modificar</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+
+              <form [formGroup]="miFormulario">
+
+              <div class="row">
+                <div class="col">
+                  <label for="categoria" class="form-label">Categoria:</label>
+                  <select class="form-select form-select-sm" aria-label=".form-select-sm example" formControlName="categoria">
+                    <option selected>Abre este menu</option>
+                    <option value="1">Vehiculos</option>
+                    <option value="2">Supermercado</option>
+                    <option value="3">Tecnologia</option>
+                    <option value="4">Electrodomesticos</option>
+                    <option value="5">Hogar y muebles</option>
+                    <option value="6">Moda</option>
+                    <option value="7">Deporte y fitness</option>
+                  </select>
+                </div>
+              </div>
+
+
+              <div class="row mt-3">
+                <div class="col">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="productoX" formControlName="nombre">
+                    <label>Nombre</label>
+                  </div>
+                </div>
+                <div class="col">
+
+                  <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="floatingPassword" placeholder="0" formControlName="cantidad">
+                    <label>Cantidad</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-floating">
+                <input type="text" class="form-control" id="floatingPassword" placeholder="descripcion" formControlName="descripcion">
+                <label>Descripcion</label>
+              </div>
+
+            </form>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-warning" (click)="editar(producto.nombre)">Guardar cambios</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+
